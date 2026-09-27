@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <!-- A viewport beállítás gondoskodik róla, hogy az oldal mobilon is a készülék szélességéhez igazodjon. -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zászlók különböző nézetekben</title>
+    <!-- A style elemben az oldalhoz tartozó CSS-formázás írható közvetlenül a HTML-be. -->
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            /* A dobozból kilógó tartalmat elrejti. */
+            overflow: hidden;
+        }
+
+        .flag {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border: none;
+        }
+
+        /* Telefon nézet: Litvánia (sárga, zöld, piros vízszintes) */
+        @media (max-width: 768px) {
+            .flag::before {
+                content: '';
+                /* Az elem kikerül a normál dokumentumfolyamból, és a pozicionált szülőhöz igazítható. */
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 33.33%;
+                background-color: #fdb913; /* Sárga */
+            }
+
+            .flag::after {
+                content: '';
+                /* Az elem kikerül a normál dokumentumfolyamból, és a pozicionált szülőhöz igazítható. */
+                position: absolute;
+                top: 33.33%;
+                left: 0;
+                width: 100%;
+                height: 33.33%;
+                background-color: #006a44; /* Zöld */
+            }
+
+            .flag {
+                background-color: #c1272d; /* Piros */
+            }
+        }
+
+        /* Tablet nézet: Mali (zöld, sárga, piros függőleges) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .flag {
+                background: linear-gradient(to right, #14b53a 33.33%, #fdb913 33.33% 66.66%, #c1272d 66.66%);
+            }
+        }
+
+        /* Asztali nézet: Mauríciusz (piros, kék, sárga, zöld vízszintes) */
+        @media (min-width: 1025px) {
+            .flag {
+                background: linear-gradient(to bottom, #ea2839 25%, #1b4ea0 25% 50%, #fdb913 50% 75%, #00a551 75%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flag"></div>
+</body>
+</html></content>
+<parameter name="filePath">/Users/gulyaskata/Documents/Dokumentumok/FullStackCourse/assigment5.html

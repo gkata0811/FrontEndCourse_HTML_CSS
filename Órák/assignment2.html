@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <!-- A viewport beállítás gondoskodik róla, hogy az oldal mobilon is a készülék szélességéhez igazodjon. -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingatlan főoldal</title>
+    <!-- A style elemben az oldalhoz tartozó CSS-formázás írható közvetlenül a HTML-be. -->
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f2f4f8;
+            /* Flexbox elrendezést kapcsol be, így a gyermekelemek rugalmasan rendezhetők. */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        h1 {
+            margin-bottom: 25px;
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+        }
+        
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 6px; font-weight: 600; color: #333; }
+        input, select {
+            width: 100%;
+            padding: 10px 12px;
+            /* A megadott szélességbe és magasságba a padding és a border is beleszámít. */
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+        
+        .radio-inline {
+            display: inline-block;
+            margin-right: 15px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background: #667eea;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #556cd6;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ingatlan igénylő űrlap</h1>
+        <!-- A form elem a felhasználótól bekért adatokat fogja össze és továbbítja. -->
+<form action="feldolgozzuk.php" method="GET">
+        <div class="form-group">
+            <label for="nev">Név:</label>
+            <input type="text" id="nev" name="nev" placeholder="pl. Kiss Pál">
+        </div>
+
+        <div class="form-group">
+            <label for="telefon">Telefonszám:</label>
+            <input type="tel" id="telefon" name="telefon" placeholder="pl. +36 30 123 4567">
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-mail cím:</label>
+            <input type="email" id="email" name="email" placeholder="pl. pál.kiss@email.com">
+        </div>
+
+        <div class="form-group">
+            <label for="kor">Kor:</label>
+            <input type="number" id="kor" name="kor" min="18" max="120" placeholder="pl. 35">
+        </div>
+
+        <div class="form-group">
+            <label for="kerulet">Kerület (1–23):</label>
+            <select id="kerulet" name="kerulet">
+                <option value="">-- válasszon --</option>
+                <option value="1">1. kerület</option>
+                <option value="2">2. kerület</option>
+                <option value="3">3. kerület</option>
+                <option value="4">4. kerület</option>
+                <option value="5">5. kerület</option>
+                <option value="6">6. kerület</option>
+                <option value="7">7. kerület</option>
+                <option value="8">8. kerület</option>
+                <option value="9">9. kerület</option>
+                <option value="10">10. kerület</option>
+                <option value="11">11. kerület</option>
+                <option value="12">12. kerület</option>
+                <option value="13">13. kerület</option>
+                <option value="14">14. kerület</option>
+                <option value="15">15. kerület</option>
+                <option value="16">16. kerület</option>
+                <option value="17">17. kerület</option>
+                <option value="18">18. kerület</option>
+                <option value="19">19. kerület</option>
+                <option value="20">20. kerület</option>
+                <option value="21">21. kerület</option>
+                <option value="22">22. kerület</option>
+                <option value="23">23. kerület</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Ingatlan típus:</label>
+
+            <label for="type1">Ház</label>
+            <input id="type1" type="radio" name="ingatlan" value="haz" />
+            <label for="type2">Lakás</label>
+            <input id="type2" type="radio" name="ingatlan" value="lakas" checked />
+        </div>
+
+        <div class="form-group">
+            <label for="szobak">Szobaszám:</label>
+            <input type="number" id="szobak" name="szobak" min="1" max="10" placeholder="pl. 3">
+        </div>
+
+        <div class="form-group">
+            <label>Ársáv (Ft):</label>
+            <input type="number" name="ar_min" placeholder="Minimum">
+            <input type="number" name="ar_max" placeholder="Maximum">
+        </div>
+
+        <button>Küldés</button>
+    </form>    </div>  </body>
+</html>

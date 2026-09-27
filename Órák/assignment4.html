@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- A viewport beállítás gondoskodik róla, hogy az oldal mobilon is a készülék szélességéhez igazodjon. -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assignment4</title>
+  <!-- A style elemben az oldalhoz tartozó CSS-formázás írható közvetlenül a HTML-be. -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+    body {
+      background-image: url('starwars.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      /* Flexbox elrendezést kapcsol be, így a gyermekelemek rugalmasan rendezhetők. */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffe81f;
+      text-shadow: 0 0 20px rgba(0,0,0,0.8);
+      font-family: 'Star Jedi', 'Orbitron', 'Arial Black', 'Impact', sans-serif;
+      font-size: 6rem;
+      min-height: 100vh;
+      /* A dobozból kilógó tartalmat elrejti. */
+      overflow: hidden;
+    }
+    .logo-container {
+      /* Viszonyítási alapot ad a benne lévő abszolút pozicionált elemeknek. */
+      position: relative;
+      display: inline-block;
+      text-align: center;
+    }
+    .logo-back,
+    .logo-front {
+      /* Az elem kikerül a normál dokumentumfolyamból, és a pozicionált szülőhöz igazítható. */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) skewX(-5deg);
+      letter-spacing: 0.4rem;
+      text-align: center;
+      font-family: inherit;
+      font-weight: 900;
+      animation: tilt-and-depth 5.5s ease-in-out infinite alternate;
+      transform-origin: center center;
+      perspective: 1000px;
+    }
+    .logo-back {
+      font-size: 7.2rem;
+      color: #000;
+      -webkit-text-stroke: 1.8px #ffe81f;
+      text-stroke: 1.8px #ffe81f;
+      z-index: 1;
+      animation-delay: 0s;
+    }
+    .logo-front {
+      font-size: 6rem;
+      color: #ffe81f;
+      -webkit-text-stroke: 1.2px #ffe81f;
+      text-stroke: 1.2px #ffe81f;
+      z-index: 2;
+      animation-delay: 0.2s;
+    }
+    @keyframes tilt-and-depth {
+      0% {
+        transform: translate(-50%, -50%) skewX(-5deg) rotateY(0deg) rotateX(0deg) translateZ(0);
+      }
+      25% {
+        transform: translate(-50%, -50%) skewX(-5deg) rotateY(18deg) rotateX(6deg) translateZ(14px);
+      }
+      50% {
+        transform: translate(-50%, -50%) skewX(-5deg) rotateY(-18deg) rotateX(-6deg) translateZ(-14px);
+      }
+      75% {
+        transform: translate(-50%, -50%) skewX(-5deg) rotateY(12deg) rotateX(4deg) translateZ(10px);
+      }
+      100% {
+        transform: translate(-50%, -50%) skewX(-5deg) rotateY(-12deg) rotateX(-4deg) translateZ(-10px);
+      }
+    }
+    .logo-text {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-container">
+    <div class="logo-back">
+      <span class="logo-text">STAR</span>
+      <span class="logo-text">WARS</span>
+    </div>
+    <div class="logo-front">
+      <span class="logo-text">STAR</span>
+      <span class="logo-text">WARS</span>
+    </div>
+  </div>
+</body>
+</html>

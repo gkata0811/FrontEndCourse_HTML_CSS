@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<title>JS DOM Gyakorlás</title>
+<!-- A style elemben az oldalhoz tartozó CSS-formázás írható közvetlenül a HTML-be. -->
+<style>
+  .box { border:1px solid #ccc; padding:10px; margin:10px 0; }
+</style>
+</head>
+<body>
+
+<div id="container"></div>
+<section></section>
+<div id="root"></div>
+
+<input type="text" id="textInput" placeholder="Írj be valamit">
+<button id="addItem">Hozzáadás</button>
+<button id="removeLast">Utolsó törlése</button>
+<ul id="dynamicList"></ul>
+
+<button id="addDiv">Új div</button>
+<button id="deleteSecond">Második törlése</button>
+
+<button id="colorSpan">Utolsó előtti kékre</button>
+<button id="createSpan">Spanek létrehozása</button>
+
+<script>
+
+// számok 1től 10ig
+for (let i = 1; i <= 10; i++) {
+  console.log(i);
+}
+
+
+// páros számok megszámolása
+const szamok = [1, 2, 7, 4, 10, 13];
+let paros = 0;
+
+for (let i = 0; i < szamok.length; i++) {
+  if (szamok[i] % 2 === 0) {
+    paros++;
+  }
+}
+
+console.log(paros);
+
+
+// tömb elemeinek összege
+const ertekek = [3, 6, 9, 2];
+let osszeg = 0;
+
+for (let i = 0; i < ertekek.length; i++) {
+  osszeg += ertekek[i];
+}
+
+console.log(osszeg);
+
+
+// szám keresése
+const tomb = [1, 5, 7, 3];
+let keresett = 7;
+
+for (let i = 0; i < tomb.length; i++) {
+  if (tomb[i] === keresett) {
+    console.log("Index:", i);
+  }
+}
+
+
+// csak pozitív számok
+const vegyes = [-3, 4, 0, -1, 9];
+let pozitiv = [];
+
+for (let i = 0; i < vegyes.length; i++) {
+  if (vegyes[i] > 0) {
+    pozitiv.push(vegyes[i]);
+  }
+}
+
+console.log(pozitiv);
+
+
+// duplázás
+const eredeti = [1, 2, 3];
+let duplazott = [];
+
+for (let i = 0; i < eredeti.length; i++) {
+  duplazott.push(eredeti[i] * 2);
+}
+
+console.log(duplazott);
+
+
+// a betűk számolása
+const betuk = ['a', 'b', 'a', 'c', 'a', 'd'];
+let db = 0;
+
+for (let i = 0; i < betuk.length; i++) {
+  if (betuk[i] === 'a') {
+    db++;
+  }
+}
+
+console.log(db);
+
+
+// tömb visszafelé
+const tomb2 = [1, 2, 3, 4];
+
+for (let i = tomb2.length - 1; i >= 0; i--) {
+  console.log(tomb2[i]);
+}
+
+
+// minden második elem
+const tomb3 = [10, 20, 30, 40, 50];
+
+for (let i = 0; i < tomb3.length; i += 2) {
+  console.log(tomb3[i]);
+}
+
+
+// duplikált elemet kiszűrése
+const duplikalt = [1, 2, 2, 3, 4, 4, 5];
+let egyedi = [];
+
+for (let i = 0; i < duplikalt.length; i++) {
+  let van = false;
+
+  for (let j = 0; j < egyedi.length; j++) {
+    if (duplikalt[i] === egyedi[j]) {
+      van = true;
+    }
+  }
+
+  if (!van) {
+    egyedi.push(duplikalt[i]);
+  }
+}
+
+console.log(egyedi);
+
+
+// 1 és 100 között osztható 3al és 5el
+for (let i = 1; i <= 100; i++) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    console.log(i);
+  }
+}
+
+
+// tömb átlaga
+const jegyek = [5, 4, 3, 2, 1];
+let osszeg2 = 0;
+
+for (let i = 0; i < jegyek.length; i++) {
+  osszeg2 += jegyek[i];
+}
+
+let atlag = osszeg2 / jegyek.length;
+console.log(atlag);
+
+
+// legnagyobb érték
+const szamok2 = [3, 7, 2, 9, 5];
+let max = szamok2[0];
+
+for (let i = 1; i < szamok2.length; i++) {
+  if (szamok2[i] > max) {
+    max = szamok2[i];
+  }
+}
+
+console.log(max);
+
+
+// adott érték előfordulása
+const tomb4 = [7, 2, 7, 3, 1, 7, 9];
+let keres = 7;
+let darab = 0;
+
+for (let i = 0; i < tomb4.length; i++) {
+  if (tomb4[i] === keres) {
+    darab++;
+  }
+}
+
+console.log(darab);
+
+</script>
+</body>
+</html>

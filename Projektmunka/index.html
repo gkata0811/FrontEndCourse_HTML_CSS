@@ -1,0 +1,275 @@
+<!-- Megadja a böngészőnek, hogy modern HTML5 dokumentum következik. -->
+<!DOCTYPE html>
+<!-- A teljes HTML dokumentum gyökéreleme; a lang="hu" jelzi, hogy a tartalom magyar nyelvű. -->
+<html lang="hu">
+<head>
+<!--
+  TANULÁSI SEGÉDLET:
+  A <!-- ... --> forma HTML-komment. A böngésző nem jeleníti meg.
+  A nyitó és záró tagek (pl. <section>...</section>) egy HTML-elemet határoznak meg.
+  class = CSS-ből több elem formázására használható név.
+  id = egyedi azonosító; CSS, JavaScript és #hivatkozások is használhatják.
+-->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">   <!-- Mobilbarát megjelenítés -->
+  <title>Pilates with Kata</title>   <!-- A böngésző fülén megjelenő cím -->
+  <link rel="stylesheet" href="styles.css">   <!-- Külső CSS fájl betöltése -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Cormorant Garamond betűtípus betöltése -->
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- Bodoni Moda és további Cormorant Garamond variációk betöltése -->
+</head>
+<!-- A body tartalmazza a weboldalon ténylegesen megjelenő tartalmat. -->
+<body>
+  <!-- Fejléc. A class alapján a CSS formázza. -->
+  <header class="site-header">
+    <!-- Középre igazított konténer -->
+    <div class="container header-inner">
+      <!-- Logó / márkanév -->
+      <div class="brand">Pilates with Kata</div>
+      <!-- Mobilnézetben megjelenő hamburger menü -->
+
+      <button
+        class="hamburger"
+        id="menu-toggle"
+        aria-label="Menü megnyitása">
+        <!-- A hamburger menü három vonala -->
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </button>
+      <!-- Navigációs menü -->
+      <nav class="main-nav" id="main-nav">
+        <!-- Navigációs linkek az egyes szekciókhoz -->
+        <a href="#home">Főoldal</a>
+        <a href="#history">Rólam</a>
+        <a href="#classes">Órák</a>
+        <a href="#signup">Jelentkezés</a>
+        <a href="#contact">Kapcsolat</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- A main az oldal fő, egyedi tartalmát fogja össze. -->
+  <main>
+
+    <!-- Hero/főoldali nyitószakasz. Az id="home" miatt a href="#home" ide ugrik. -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <div class="hero-circle">
+          <span>
+            Pilates<br>
+            <small>with Kata</small>
+          </span>
+        </div>
+      </div>
+    </section>
+
+        <!-- Rólam szekció; a history azonosítót használja a navigáció. -->
+        <section class="section" id="history">
+          <div class="container">
+                <div class="section-layout">
+                  <div class="section-content">
+                    <h2>Rólam</h2>
+                    <h3>Üdvözöllek!</h3>
+                    <p>Gulyás Kata vagyok, okleveles Pilates-oktató, és hiszek abban, hogy a mozgás nem csupán a test formálásáról szól, hanem a testi-lelki egyensúly megteremtéséről is. A Pilates számomra sokkal több egy edzésformánál: egy olyan módszer, amely segít tudatosabb kapcsolatot kialakítani a testünkkel, javítani a tartásunkat, növelni az erőnket és csökkenteni a mindennapi stresszt.</p>
+                    <p>Oktatóként célom, hogy minden vendégem biztonságos, támogató környezetben fejlődhessen, függetlenül attól, hogy teljesen kezdőként érkezik, vagy már régóta mozog. Az óráimon kiemelt figyelmet fordítok a helyes kivitelezésre, a tudatos légzésre és az egyéni igényekre.</p>
+                    <p>Hiszem, hogy minden test más, ezért a Pilates gyakorlatait mindig az adott személy képességeihez és céljaihoz igazítom. Legyen szó hátfájás megelőzéséről, rehabilitációról, alakformálásról vagy egyszerűen a jobb közérzetről, örömmel segítek az úton.</p>
+                    <p>Szeretettel várlak óráimon, hogy együtt fedezzük fel a Pilates jótékony hatásait!</p>
+                  </div>
+                <div class="section-image">
+              <!-- src: a kép fájlja; alt: helyettesítő szöveg akadálymentességhez és sikertelen betöltéshez. -->
+              <img src="mindbodysoul.jpeg" alt="Gulyás Kata">
+             </div>
+           </div>
+          </div>
+        </section>
+
+      <!-- Óratípusokat bemutató szekció. -->
+      <section class="section" id="classes">
+        <div class="container">
+          <h2>Órák</h2>
+          <h3>Melyik órát válasszam?</h3>
+          <p>Minden Pilates óra más élményt nyújt, ezért érdemes átgondolni, milyen célokkal érkezel hozzánk. Akár most ismerkedsz a Pilates világával, akár új kihívást keresel, segítünk megtalálni a számodra legmegfelelőbb óratípust.</p>
+          <!-- A cards konténerben a CSS rácsszerkezetbe rendezi a kártyákat. -->
+          <div class="cards">
+            <!-- Egy önálló óratípus-kártya. -->
+            <article class="card">
+              <h3>Mat Pilates - A tökéletes alap</h3>
+              <p>Ha még soha nem próbáltad a Pilates-t, a Mat Pilates a legjobb választás számodra. Ezeken az órákon elsajátíthatod a Pilates alapelveit, megtanulhatod a helyes légzéstechnikát, a tudatos mozgás kivitelezését és a törzs stabilizáló izmainak aktiválását</p>
+              <p>A Mat Pilates különösen ajánlott azoknak, akik ülőmunkát végeznek, hát- vagy derékfájással küzdenek, illetve szeretnének fokozatosan erősebbé és hajlékonyabbá válni. A gyakorlatok alacsony terhelést jelentenek az ízületek számára, mégis rendkívül hatékonyan fejlesztik a teljes test izomzatát.</p>
+              <p>Neked ajánljuk, ha: kezdő vagy a Pilates világában, javítani szeretnél a testtartásodon, hát- vagy derékpanaszokkal küzdesz, biztonságos, mégis hatékony mozgásformát keresel, szeretnéd megalapozni a későbbi fejlődésede.</p>
+            </article>
+            <!-- Egy önálló óratípus-kártya. -->
+            <article class="card">
+              <h3>Reformer Pilates – Dinamikus fejlődés és teljes testes erősítés</h3>
+              <p>A Reformer Pilates a Pilates egyik legnépszerűbb és leglátványosabb formája. A speciális gép rugós ellenállása lehetővé teszi, hogy a gyakorlatok egyszerre legyenek kíméletesek és intenzívek. Az ellenállás személyre szabható, ezért a Reformer kezdőknek és haladóknak egyaránt ideális.</p>
+              <p>Az óra során szinte minden izomcsoport dolgozik, különös hangsúlyt kapnak a mélyizmok, a farizmok, a lábak és a törzs stabilizáló izmai. A mozgások precízek, kontrolláltak és rendkívül hatékonyak.</p>
+              <p>Neked ajánljuk, ha: gyorsabban szeretnél fejlődni, erősítenéd és formálnád a testedet, sportolsz, és szeretnéd javítani a teljesítményedet, szereted a változatos és motiváló edzéseket, olyan mozgásformát keresel, amely egyszerre erősít és nyújt.</p>
+            </article>
+            <!-- Egy önálló óratípus-kártya. -->
+            <article class="card">
+              <h3>Hot Pilates – Intenzív kihívás felfűtött környezetben</h3>
+              <p>A Hot Pilates azoknak készült, akik szeretik a lendületesebb, intenzívebb órákat. A felfűtött teremben végzett edzés során az izmok gyorsabban bemelegszenek, így könnyebben érhető el nagyobb mozgástartomány és fokozott izommunka.</p>
+              <p>A magasabb hőmérséklet és a dinamikusabb gyakorlatok kombinációja miatt a Hot Pilates egyszerre fejleszti az erőt, az állóképességet és a testkontrollt. Az óra energikus, kihívást jelentő és rendkívül motiváló.</p>
+              <p>Neked ajánljuk, ha: szereted az intenzívebb edzéseket, könnyen izgalomba hoznak az új kihívások, szeretnéd fokozni az állóképességedet, már van némi mozgás- vagy Pilates-tapasztalatod, olyan órát keresel, ahol egyszerre dolgozik a tested és a kitartásod.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+    <!-- Jelentkezési szekció. -->
+    <section class="section" id="signup">
+  <div class="container">
+    <div class="section-layout">
+      <div class="section-content">
+        <h2>Jelentkezés</h2>
+        <p>Töltsd ki az alábbi űrlapot, hogy be tudjuk regisztrálni melyik órán szeretnél részt venni.</p>
+
+        <!-- Űrlap. A required mezőket a böngésző elküldés előtt kötelezően kitölteti. -->
+        <form class="contact-form">
+
+          <label for="name">Név</label>
+          <!-- type=text: egysoros szövegmező; id: a label kapcsolódási pontja; name: beküldési név; placeholder: súgószöveg; required: kötelező. -->
+          <input type="text" id="name" name="name" placeholder="Teljes Név" required>
+
+          <label for="classType">Óratípus</label>
+          <!-- Legördülő lista. Az option elemek a választható lehetőségek. -->
+          <select id="classType" name="classType" required>
+            <option value="">Válassz</option>
+            <option value="alap">Mat Pilates</option>
+            <option value="halado">Reformer Pilates</option>
+            <option value="dupla">Hot Pilates</option>
+          </select>
+
+          <label for="day">Nap</label>
+          <!-- Kötelező legördülő lista a nap kiválasztásához. -->
+          <select id="day" name="day" required>
+            <option value="">Válassz</option>
+            <option value="hetfo">Hétfő</option>
+            <option value="kedd">Kedd</option>
+            <option value="szerda">Szerda</option>
+            <option value="csutortok">Csütörtök</option>
+            <option value="pentek">Péntek</option>
+          </select>
+
+          <label for="timeSlot">Idősáv</label>
+          <!-- Kötelező legördülő lista az idősáv kiválasztásához. -->
+          <select id="timeSlot" name="timeSlot" required>
+            <option value="">Válassz</option>
+            <option value="0700">7:00 - 7:50</option>
+            <option value="0800">8:00 - 8:50</option>
+            <option value="1600">16:00 - 16:50</option>
+            <option value="1700">17:00 - 17:50</option>
+            <option value="1800">18:00 - 18:50</option>
+            <option value="1900">19:00 - 19:50</option>
+          </select>
+
+          <label for="experience">Voltál-e már korábban bármilyen Pilates órán?</label>
+          <!-- Kötelező legördülő lista a korábbi tapasztalat megadásához. -->
+          <select id="experience" name="experience" required>
+            <option value="">Válassz</option>
+            <option value="igen">Igen</option>
+            <option value="nem">Nem</option>
+          </select>
+
+          <label for="email">E-mail cím</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="pelda@email.com"
+            required>
+
+          <!-- type=submit: az űrlap elküldését indító gomb. -->
+          <button type="submit">Küldés</button>
+        </form>
+      </div>
+
+      <div class="section-image">
+        <img src="goodday.png" alt="Pilates motiváció">
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Kapcsolati szekció. -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-layout">
+      <div class="section-image">
+        <img src="FITNESS.jpeg" alt="Kapcsolat">
+      </div>
+      <div class="section-content">
+        <h2>Kapcsolat</h2>
+        <p>Ha nem tudod, melyik óratípus lenne számodra a legmegfelelőbb, vagy bármi egyéb kérdés merült fel benned vedd fel velünk a kapcsolatot! Szívesen segítünk kiválasztani azt az órát, amely leginkább megfelel jelenlegi állapotodnak, céljaidnak és tapasztalati szintednek.</p>
+        <p>A legfontosabb, hogy olyan mozgásformát találj, amelyet örömmel végzel – a Pilates pedig minden szinten lehetőséget kínál a fejlődésre.</p>
+        <p>
+            📧 E-mail:
+            <!-- mailto: kattintáskor az alapértelmezett levelezőprogramot nyitja meg. -->
+            <a href="mailto:hello@pilateswithkata.hu">
+                hello@pilateswithkata.hu
+            </a>
+            </p>
+            <p>
+            📞 Telefon:
+            <!-- tel: mobilon/kompatibilis eszközön telefonhívást kezdeményezhet. -->
+            <a href="tel:+36301234567">
+                +36 30 123 4567
+            </a>
+            </p>
+      </div>
+      </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Az oldal lábléce. -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Pilates with Kata. Minden jog fenntartva.</p>
+    </div>
+  </footer>
+
+  <!-- Lebegő vissza-a-tetejére gomb. aria-label: képernyőolvasóknak ad érthető nevet. -->
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Vissza a tetejére">↑</button>
+
+  <!-- JavaScript: interaktív működés (mobilmenü és vissza-a-tetejére gomb). -->
+  <script>
+    // Megkeresi az id=menu-toggle elemet, és eltárolja a toggle változóban.
+    const toggle = document.getElementById('menu-toggle');
+    // Megkeresi a navigációt, hogy később nyitható/zárható legyen.
+    const nav = document.getElementById('main-nav');
+    // Megkeresi a vissza-a-tetejére gombot.
+    const backToTop = document.getElementById('back-to-top');
+
+    // Kattintáskor lefut a kapcsos zárójelek közötti függvény.
+    toggle.addEventListener('click', () => {
+      // Ha nincs open osztály, hozzáadja; ha van, eltávolítja. Ezzel nyílik/záródik a menü.
+      nav.classList.toggle('open');
+      // Az active osztály a hamburger ikon animációját vezérli.
+      toggle.classList.toggle('active');
+    });
+
+    // Minden görgetéskor ellenőrzi, milyen messze van az oldal teteje.
+    window.addEventListener('scroll', () => {
+      // Ha 400 pixelnél lejjebb görgettünk, megjelenik a gomb.
+      if (window.scrollY > 400) {
+        // Hozzáadja a visible CSS-osztályt.
+        backToTop.classList.add('visible');
+      } else {
+        // 400 pixel felett eltávolítja a visible osztályt, így a gomb elrejtőzik.
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    // A vissza-a-tetejére gombra kattintás eseménykezelője.
+    backToTop.addEventListener('click', () => {
+      // A lap tetejére (top: 0) görget, smooth = finom animációval.
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

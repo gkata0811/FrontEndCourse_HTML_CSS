@@ -1,0 +1,84 @@
+body {
+
+    background-color: #1f1f1f;
+    font-family: Arial, sans-serif;
+    padding: 40px;
+    color: white;
+
+}
+
+.search-box label {
+
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+
+}
+
+/* A keresőmezőt és a gombot egy sorba rendezi. */
+.search-container {
+
+    /* Flexbox elrendezést kapcsol be, így a gyermekelemek rugalmasan rendezhetők. */
+    display: flex;
+    gap: 15px;
+
+}
+
+.search-container input {
+
+    width: 350px;
+    height: 55px;
+    background-color: #2d2d2d;
+    border: 2px solid #555;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+
+}
+
+.search-container button {
+
+    width: 160px;
+    height: 55px;
+    background-color: white;
+    border: none;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.search-container button:hover {
+
+    background-color: #ddd;
+
+}
+
+/* Grid konténer: a gyermekdobozokat névvel ellátott rácsterületekre rendezi. */
+.grid {
+    /* CSS Grid elrendezést kapcsol be sorok és oszlopok kialakításához. */
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(3, minmax(150px, 1fr)) 280px;
+    grid-template-rows: 220px 220px 140px;
+    grid-template-areas:
+        "a b c sidebar"
+        "d d e sidebar"
+        "f f f sidebar";
+}
+
+.grid > div {
+    background-color: #2d2d2d;
+    border: 2px solid #555;
+    padding: 20px;
+}
+
+.grid .box-a { grid-area: a; }
+.grid .box-b { grid-area: b; }
+.grid .box-c { grid-area: c; }
+.grid .box-d { grid-area: d; }
+.grid .box-e { grid-area: e; }
+.grid .box-f { grid-area: f; }
+.grid .box-sidebar { grid-area: sidebar; }
+

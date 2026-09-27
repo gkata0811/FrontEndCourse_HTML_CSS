@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- A viewport beállítás gondoskodik róla, hogy az oldal mobilon is a készülék szélességéhez igazodjon. -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- A style elemben az oldalhoz tartozó CSS-formázás írható közvetlenül a HTML-be. -->
+<style>
+      section {
+        border: thin solid red;
+        /* Flexbox elrendezést kapcsol be, így a gyermekelemek rugalmasan rendezhetők. */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0;
+        align-items: flex-start;
+        /* A dobozból kilógó tartalmat elrejti. */
+        overflow: hidden;
+      }
+      section article {
+        border: thin solid blue;
+        margin: 5px;
+        padding: 5px;
+        width: 32%;
+        /* Függőleges görgetősávot csak akkor jelenít meg, ha szükséges. */
+        overflow-y: auto;
+        height: 600px;
+      }
+      section article:nth-child(n+2) {
+        height: 600px;
+      }
+      div {
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+      }
+      div::first-letter {
+        color: red;
+        font-size: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <article>
+        <div>
+          1 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus
+          similique doloremque voluptas incidunt nesciunt deserunt quo iure
+          vitae. Enim expedita labore doloribus fugiat debitis dolor, nesciunt
+          at architecto porro. Quia? Repellat, distinctio? Distinctio, aperiam.
+          Tempore incidunt, eaque quaerat magnam natus exercitationem impedit
+          corrupti qui. Veniam, mollitia nemo autem, asperiores deserunt
+          inventore facilis consequatur doloribus ut repudiandae quos nulla
+          tenetur odit. In, nihil dolorum? Recusandae tenetur labore quia, alias
+          excepturi dolores reiciendis nam quae deserunt quos quod culpa totam
+          fuga corporis fugiat architecto at repellendus praesentium est vero
+          adipisci aut iusto.
+        </div>
+
+        <div>
+          2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+          minima placeat eum iusto sit voluptas commodi impedit, ipsa
+          repellendus voluptatibus sed dolore obcaecati, quisquam iure veritatis
+          vitae. Assumenda, voluptatem. Quam? Totam odio similique cum,
+          necessitatibus error, ullam porro neque, at et rerum voluptates. Porro
+          quo eaque placeat repudiandae, quibusdam quae debitis dolore provident
+          accusamus vero temporibus harum cum aliquam eveniet! Maiores, non
+          doloremque. Dolor facere temporibus quas mollitia nam quibusdam
+          tenetur, cumque officia dignissimos, molestias dolores. Consequatur
+          ullam sint facilis, sunt odit, quam tempore illo, esse doloribus fuga
+          quasi deserunt. Cumque nemo cupiditate, voluptatem rerum mollitia
+          eveniet animi quae ipsum culpa consectetur doloribus iure provident
+          quod nulla earum nihil dignissimos saepe ratione quos explicabo sequi
+          delectus, tempora illum ea. Inventore.
+        </div>
+      </article>
+      <article>
+        <div>
+          3 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad
+          eligendi aspernatur in deleniti quas. Amet exercitationem ea nisi
+          quibusdam voluptatem repellendus mollitia aperiam, quaerat reiciendis
+          veritatis, perferendis nesciunt tempore delectus! Quia, id aspernatur
+          enim molestiae est aliquid explicabo dolore, eos provident numquam
+          error accusantium? Soluta nemo, asperiores ratione repudiandae quos
+          vel officia natus minus impedit rerum eum aliquam, sapiente facere.
+          Corrupti, dicta quod inventore quo labore veritatis eveniet provident
+          corporis illum. Fugiat veniam quisquam corrupti consequuntur quis sint
+          culpa sed, ratione optio recusandae, saepe expedita iusto
+          exercitationem corporis neque nulla. Ex, neque officiis sint esse sunt
+          perspiciatis placeat provident. Nihil perferendis earum minus numquam
+          quos sunt, animi, blanditiis natus sint provident nostrum mollitia
+          optio aspernatur laudantium harum explicabo? Totam, quasi. Dignissimos
+          deleniti unde illo nobis repellat alias, aut ab ad aspernatur nemo
+          tempora quidem nulla corporis pariatur fugiat sequi reprehenderit
+          obcaecati optio nostrum voluptate quasi laborum nam nihil eaque!
+          Corrupti!
+        </div>
+
+        <div>
+          4 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus
+          similique doloremque voluptas incidunt nesciunt deserunt quo iure
+          vitae. Enim expedita labore doloribus fugiat debitis dolor, nesciunt
+          at architecto porro. Quia? Repellat, distinctio? Distinctio, aperiam.
+          Tempore incidunt, eaque quaerat magnam natus exercitationem impedit
+          corrupti qui. Veniam, mollitia nemo autem, asperiores deserunt
+          inventore facilis consequatur doloribus ut repudiandae quos nulla
+          tenetur odit. In, nihil dolorum? Recusandae tenetur labore quia, alias
+          excepturi dolores reiciendis nam quae deserunt quos quod culpa totam
+          fuga corporis fugiat architecto at repellendus praesentium est vero
+          adipisci aut iusto.
+        </div>
+      </article>
+      <article>
+        <div>
+          5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+          minima placeat eum iusto sit voluptas commodi impedit, ipsa
+          repellendus voluptatibus sed dolore obcaecati, quisquam iure veritatis
+          vitae. Assumenda, voluptatem. Quam? Totam odio similique cum,
+          necessitatibus error, ullam porro neque, at et rerum voluptates. Porro
+          quo eaque placeat repudiandae, quibusdam quae debitis dolore provident
+          accusamus vero temporibus harum cum aliquam eveniet! Maiores, non
+          doloremque. Dolor facere temporibus quas mollitia nam quibusdam
+          tenetur, cumque officia dignissimos, molestias dolores. Consequatur
+          ullam sint facilis, sunt odit, quam tempore illo, esse doloribus fuga
+          quasi deserunt. Cumque nemo cupiditate, voluptatem rerum mollitia
+          eveniet animi quae ipsum culpa consectetur doloribus iure provident
+          quod nulla earum nihil dignissimos saepe ratione quos explicabo sequi
+          delectus, tempora illum ea. Inventore.
+        </div>
+
+        <div>
+          6 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad
+          eligendi aspernatur in deleniti quas. Amet exercitationem ea nisi
+          quibusdam voluptatem repellendus mollitia aperiam, quaerat reiciendis
+          veritatis, perferendis nesciunt tempore delectus! Quia, id aspernatur
+          enim molestiae est aliquid explicabo dolore, eos provident numquam
+          error accusantium? Soluta nemo, asperiores ratione repudiandae quos
+          vel officia natus minus impedit rerum eum aliquam, sapiente facere.
+          Corrupti, dicta quod inventore quo labore veritatis eveniet provident
+          corporis illum. Fugiat veniam quisquam corrupti consequuntur quis sint
+          culpa sed, ratione optio recusandae, saepe expedita iusto
+          exercitationem corporis neque nulla. Ex, neque officiis sint esse sunt
+          perspiciatis placeat provident. Nihil perferendis earum minus numquam
+          quos sunt, animi, blanditiis natus sint provident nostrum mollitia
+          optio aspernatur laudantium harum explicabo? Totam, quasi. Dignissimos
+          deleniti unde illo nobis repellat alias, aut ab ad aspernatur nemo
+          tempora quidem nulla corporis pariatur fugiat sequi reprehenderit
+          obcaecati optio nostrum voluptate quasi laborum nam nihil eaque!
+          Corrupti!
+        </div>
+      </article>
+    </section>
+  </body>
+</html>

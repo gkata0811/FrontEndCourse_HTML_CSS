@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- A viewport beállítás gondoskodik róla, hogy az oldal mobilon is a készülék szélességéhez igazodjon. -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Első beadandó</title>
+        <!-- A style elemben az oldalhoz tartozó CSS-formázás írható közvetlenül a HTML-be. -->
+<style>
+            body {
+                margin: 0;
+                padding: 0;
+                /* Flexbox elrendezést kapcsol be, így a gyermekelemek rugalmasan rendezhetők. */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family: Arial, sans-serif;
+            }
+
+            header, main, footer {
+                width: 80%;
+                max-width: 800px;
+                text-align: center;
+            }
+
+            nav {
+                width: 100%;
+                /* allow the flexed ul to center across full viewport */
+                text-align: left; /* keep link text left-aligned */
+            }
+
+            nav ul {
+                list-style: none;
+                padding: 0;
+                /* Flexbox elrendezést kapcsol be, így a gyermekelemek rugalmasan rendezhetők. */
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            nav a {
+                text-decoration: none;
+                color: inherit;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>TotalCar</h1>
+        </header>
+
+        <!-- A nav szemantikus elem a navigációs hivatkozásokat fogja össze. -->
+<nav>
+            <ul>
+                <li><a href="#section1">Üdvözlő</a></li>
+                <li><a href="#section2">Magazin</a></li>
+            </ul>
+        </nav>
+
+        <!-- A main elem az oldal elsődleges tartalmát jelöli. -->
+<main> 
+            <section id="section1">
+                <h2>Üdvözlő</h2>
+
+                <article>
+
+                    <p>Üdvözöllek a TotalCar oldalán.</p>
+
+                </article>
+            </section>
+
+            <section id="section2">
+                <h2>Magazin</h2>
+
+                <article>
+                    <h3>Több ideig ettünk, mint amíg a BYD töltött - Elértük Nürnberget!</h3>
+                    <p>Elindultunk Németországba Sipiúrral, hogy megtekintsük a világ legnagyobb játékkiállítását, vagyis a Spielwarenmessét. Mivel tél van, és a cél is kellően messe van, úgy döntöttünk, hogy a legjobb megoldás, ha egy villanyautóval vágunk neki a túrának. Ez azért fontos részlet, mert Sipi pont tíz évvel ezelőtt szintén egy elektromos autóval tolta le ugyanezt, így meg kellett tisztelnünk a hagyományokat.</p>
+                    <p>2016-ban egy Kia Soul volt a céleszköz, most pedig egy BYD Seal. Utóbbi egy nagyobb akkumulátoros, Design verzió, 82,5 kWh-t tud és csak hátul hajt, a konkrét autó egyébként 2024-es. Ez a változat WLTP szerint vegyes felhasználás mellett 570 kilométert tud, de mi épp nem vegyesen használjuk, hanem szinte kizárólag autópályán toljuk neki.</p>
+                    <p>Sipi már letesztelte a túra előtt, hogy autópályán, 130-cal, ebben a hidegben nagyjából 250-260 kilométer alatt fogy 80 százaléknyi töltés. Akár még lóghatna a levegőben némi hatótávpara is, kíváncsian vártuk, hogy mit hoz a gyakorlat. Nem éreztem szörnyűnek a helyzetet, hiszen úgy terveztük, hogy kizárólag Ionity-n töltünk, ami rendes tempóval tudja küldeni a delejt a Sealbe.</p>
+                    <p>Parndorf volt az első tervezett megálló, amire az Ionity applikációja azt saccolta, hogy tizenpár százalékkal esünk majd be. Durván mellélőtt: végül 45 százalékkal értünk oda, nyilván nem vette figyelembe, hogy az M1-est épp hosszan túrják, ezért viszonylag ritkán tudtunk 130-cal menni.</p>
+                    <p>Gyorsan megkajáltunk, ittunk kávét, az autó ez idő alatt vígan maxra töltődött. A következő megállót nagyjából 180 kilométerre terveztük, Amstettenbe, ám épp remek kedvében volt a BYD, ezért végül csak Meggenhofenben álltunk meg, bő 100 kilométerrel arrébb. Elnéztem egy lehajtót, így 300 kilométer környékén alakult a vége, 24 százalékra merültünk, pedig az ausztriai szakaszon a legtöbb esetben lehetett tisztességesen haladni. Váratlan, hogy összefutottunk a pályán néhány magyar BKK-busszal, és azon morfondíroztunk, hogy erre milyen bérlet kell itt Ausztriában. Én arra jutottam, hogy olyan világjegy, ami Corben Dallasnak is volt.</p>
+                </article>
+
+                <article>
+                    <h3>A Chevrolet Corvair futóműve</h3>
+                    <p>A hatvanas években még nem volt központi kérdés a biztonság. Amikor a General Motors előállt az európai mintára fejlesztett, az amerikai márkák körében szokatlan megoldásokat, önhordó karosszériát, léghűtéses boxer farmotort, illetve független, hátul lengőtengelyes futóművet felvonultató Corvairrel, nagy port kavart a modern, kompakt méretű autók piacán. A vevők sokáig lelkesedtek érte, később azonban több mint száz kártérítési pert indítottak a Chevrolet ellen olyanok, akik szokatlan kezelhetősége miatt balesetet szenvedtek vele. Ez felkeltette az ügyvéd, Ralph Nader figyelmét..</p>
+                </article>
+
+            </section>
+
+        </main>
+
+        <footer>
+            <h1>Lábjegyzet</h1>
+            <p>&copy; 2026 Assignment 1. All rights reserved.</p>
+        </footer>
+
+    </body>
+    </html>

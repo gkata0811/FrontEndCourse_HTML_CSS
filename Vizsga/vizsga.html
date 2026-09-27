@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Dobozok HTML5</title>
+  <!-- A style elemben az oldalhoz tartozó CSS-formázás írható közvetlenül a HTML-be. -->
+<style>
+    .container {
+      border: 2px solid #333;
+      padding: 20px;
+      margin: 20px;
+    }
+    .box {
+      border: 1px solid #666;
+      padding: 15px;
+      margin: 10px 0;
+      background: #f4f4f4;
+    }
+    .kapcsolat {
+      width: 60%;
+      margin: 0 auto;
+      display: block;
+    }
+    .name-row {
+      /* Flexbox elrendezést kapcsol be, így a gyermekelemek rugalmasan rendezhetők. */
+      display: flex;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .name-row .field {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+    @media (max-width: 600px) {
+      .name-row {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+    ul, ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .szerszámok .csavarhúzó {
+      background-image: url("hatter.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: 2px solid blue;
+      display: block;
+    }
+
+    * {
+
+    margin: 0;
+    padding: 0;
+    /* A megadott szélességbe és magasságba a padding és a border is beleszámít. */
+    box-sizing: border-box;
+
+}
+
+body {
+
+    background-color: #dfe5e3;
+    font-family: Arial, sans-serif;
+    /* Flexbox elrendezést kapcsol be, így a gyermekelemek rugalmasan rendezhetők. */
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+
+}
+
+.register-box {
+
+    width: 700px;
+    background-color: #f8f8f8;
+    border-radius: 20px;
+    padding: 60px 70px;
+
+}
+
+h1 {
+
+    text-align: center;
+    font-size: 56px;
+    color: #16304f;
+    margin-bottom: 60px;
+    font-weight: 300;
+
+}
+
+form label {
+
+    display: block;
+    margin-bottom: 10px;
+    color: #16304f;
+    font-weight: bold;
+    font-size: 14px;
+
+}
+
+form input {
+
+    width: 100%;
+    height: 55px;
+    border: 1px solid #d5dddd;
+    border-radius: 8px;
+    background-color: #eef3f2;
+    padding: 15px;
+    font-size: 16px;
+    margin-bottom: 30px;
+    transition: 0.3s;
+
+}
+
+form input:hover,
+
+form input:focus {
+
+    background-color: #dfe8f5;
+    border-color: #7d98c2;
+    outline: none;
+
+}
+
+.row {
+
+    /* Flexbox elrendezést kapcsol be, így a gyermekelemek rugalmasan rendezhetők. */
+    display: flex;
+    gap: 20px;
+
+}
+
+.field {
+
+    width: 50%;
+
+}
+
+.password-box {
+
+    /* Viszonyítási alapot ad a benne lévő abszolút pozicionált elemeknek. */
+    position: relative;
+
+}
+
+.password-box .eye {
+
+    /* Az elem kikerül a normál dokumentumfolyamból, és a pozicionált szülőhöz igazítható. */
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    font-size: 20px;
+    cursor: pointer;
+
+}
+
+.checkbox {
+
+    /* Flexbox elrendezést kapcsol be, így a gyermekelemek rugalmasan rendezhetők. */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+
+}
+
+.checkbox input {
+
+    width: 18px;
+    height: 18px;
+    margin-bottom: 0;
+
+}
+
+.checkbox label {
+
+    margin-bottom: 0;
+    font-size: 13px;
+    font-weight: normal;
+    color: #777;
+
+}
+
+button {
+
+    width: 100%;
+    height: 60px;
+    background-color: #06284b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+
+button:hover {
+
+    background-color: #0a3d70;
+
+}
+
+
+
+  </style>
+</head>
+<body>
+  <header class="container">
+    <h1>Fejléc</h1>
+    <p>Ez a külső doboz teteje.</p>
+  </header>
+
+  <main class="container">
+    <section class="box">
+      <h2>Doboz 1</h2>
+      <p>Alma</p>
+    </section>
+    <section class="box">
+      <h2>Doboz 2</h2>
+      <p>Banán</p>
+    </section>
+    <section class="box">
+      <h2>Doboz 3</h2>
+      <p>Eper</p>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>Lábléc</p>
+  </footer>
+
+  <div class="kapcsolat">
+    <h2>Kapcsolat</h2>
+    <p>Elérhetőség: info@pelda.hu</p>
+  </div>
+
+  <h1>Táblázat</h1>
+
+  <!-- A table táblázatos adatok sorokba és oszlopokba rendezésére szolgál. -->
+<table border="1" cellpadding="8" cellspacing="0">
+    <caption> Négy oszlopos, három soros táblázat </caption>
+    <thead>
+      <tr>
+        <th>Oszlop 1</th>
+        <th>Oszlop 2</th>
+        <th>Oszlop 3</th>
+        <th>Oszlop 4</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1-1</td>
+        <td>1-2</td>
+        <td>1-3</td>
+        <td>1-4</td>
+      </tr>
+      <tr>
+        <td>2-1</td>
+        <td>2-2</td>
+        <td>2-3</td>
+        <td>2-4</td>
+      </tr>
+      <tr>
+        <td>3-1</td>
+        <td>3-2</td>
+        <td>3-3</td>
+        <td>3-4</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h1>Kép link</h1>
+
+  <a href="https://www.prooktatas.hu" target="_blank" rel="noopener noreferrer">
+    <img src="https://via.placeholder.com/300x150.png?text=Prooktatas" alt="Prooktatas">
+  </a>
+
+  <h1>Hívható telefonszám</h1>
+
+  <p>
+    <a href="tel:+36123456789">+36 1 234 5678</a>
+  </p>
+
+  <h1>E-mail küldés</h1>
+
+  <p>
+    <a href="mailto:info@pelda.hu">E-mail küldés</a>
+  </p>
+
+  <h1>Hanganyag lejátszása</h1>
+  <audio controls>
+    <source src="hanganyag.mp3" type="audio/mpeg">
+    A böngésződ nem támogatja az audio elemet.
+  </audio>
+
+  <h1>Videó</h1>
+  <video controls width="640">
+    <source src="video.mp4" type="video/mp4">
+    A böngésződ nem támogatja a videó elemet.
+  </video>
+
+  <h1>Kapcsolatfelvételi űrlap</h1>
+
+  <!-- A form elem a felhasználótól bekért adatokat fogja össze és továbbítja. -->
+<form action="feldolgoz.php" method="post">
+    <div class="name-row">
+      <div class="field">
+        <label for="vezeteknev">Vezetéknév:</label><br>
+        <input id="vezeteknev" name="vezeteknev" type="text" required placeholder="Vezetéknév">
+        <small>Kérjük, add meg a vezetékneved.</small>
+      </div>
+      <div class="field">
+        <label for="keresztnev">Keresztnév:</label><br>
+        <input id="keresztnev" name="keresztnev" type="text" required placeholder="Keresztnév">
+        <small>Kérjük, add meg a keresztneved.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="email">E-mail:</label><br>
+      <input type="email" id="email" name="email" required placeholder="példa@domain.hu">
+      <small>Írd be az e-mail címedet, erre fogunk válaszolni.</small>
+    </div>
+
+    <div>
+      <label for="telefon">Telefonszám:</label><br>
+      <input type="tel" id="telefon" name="telefon" required placeholder="+36 30 123 4567">
+      <small>Adj meg egy elérhető telefonszámot.</small>
+    </div>
+
+    <div>
+      <label for="uzenet">Üzenet:</label><br>
+      <textarea id="uzenet" name="uzenet" cols="40" rows="5" placeholder="Írd ide az üzeneted..."></textarea>
+    </div>
+
+    <div>
+      <button type="submit">Küldés</button>
+    </div>
+  </form>
+</body>
+</html>
+
+<body>
+
+    <div class="search-box">
+
+        <label for="search">Keresés</label>
+
+        <div class="search-container">
+            <input type="text" id="search">
+            <button>Keresés</button>
+        </div>
+    </div>
+
+</body>
+
+
+<div class="register-box">
+
+        <h1>Regisztráció</h1>
+
+        <form>
+
+            <label for="company">Cég neve*</label>
+
+            <input type="text" id="company" required>
+
+            <div class="row">
+                <div class="field">
+                    <label for="lastname">Vezetéknév*</label>
+                    <input type="text" id="lastname" required>
+                </div>
+
+                <div class="field">
+                    <label for="firstname">Keresztnév*</label>
+                    <input type="text" id="firstname" required>
+                </div>
+            </div>
+
+            <label for="email">E-mail cím*</label>
+
+            <input type="email" id="email" required>
+
+            <label for="password">Jelszó*</label>
+
+            <div class="password-box">
+                <input type="password" id="password" value="••••••" required>
+                <span class="eye">👁</span>
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" id="accept" required>
+                <label for="accept">
+                    Elfogadom a szerződési feltételeket és az adatvédelmi nyilatkozatot
+                </label>
+            </div>
+
+            <button type="submit">REGISZTRÁCIÓ</button>
+
+        </form>
+    </div>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<body>

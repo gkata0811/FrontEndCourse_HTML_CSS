@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<title>JS DOM Gyakorlás</title>
+<!-- A style elemben az oldalhoz tartozó CSS-formázás írható közvetlenül a HTML-be. -->
+<style>
+  .box { border:1px solid #ccc; padding:10px; margin:10px 0; }
+</style>
+</head>
+<body>
+
+<div id="container"></div>
+<section></section>
+<div id="root"></div>
+
+<input type="text" id="textInput" placeholder="Írj be valamit">
+<button id="addItem">Hozzáadás</button>
+<button id="removeLast">Utolsó törlése</button>
+<ul id="dynamicList"></ul>
+
+<button id="addDiv">Új div</button>
+<button id="deleteSecond">Második törlése</button>
+
+<button id="colorSpan">Utolsó előtti kékre</button>
+<button id="createSpan">Spanek létrehozása</button>
+
+<script>
+
+// 1. div létrehozása és body végére
+// createElement(): új HTML-elemet hoz létre JavaScriptből.
+const div1 = document.createElement("div");
+div1.textContent = "1. feladat div";
+document.body.appendChild(div1);
+
+// 2. ul + három li
+const ul1 = document.createElement("ul");
+["Első","Második","Harmadik"].forEach(text => {
+  const li = document.createElement("li");
+  li.textContent = text;
+  ul1.appendChild(li);
+});
+document.body.appendChild(ul1);
+
+// 3. gomb létrehozó függvény
+function createButton() {
+  const btn = document.createElement("button");
+  btn.textContent = "Kattints rám";
+  document.body.prepend(btn);
+}
+createButton();
+
+// 4. p hozzáadása #container-hez
+const p1 = document.createElement("p");
+p1.textContent = "Hello Világ!";
+// getElementById(): az id attribútuma alapján keresi meg az elemet.
+document.getElementById("container").appendChild(p1);
+
+// 5. kép hozzáadása section-höz
+const img = document.createElement("img");
+img.src = "https://picsum.photos/200";
+// querySelector(): CSS-szelektor alapján az első megfelelő elemet keresi meg.
+document.querySelector("section").appendChild(img);
+
+// 6. első li törlése
+const ul2 = document.createElement("ul");
+["A","B","C"].forEach(t=>{
+  const li = document.createElement("li");
+  li.textContent = t;
+  ul2.appendChild(li);
+});
+document.body.appendChild(ul2);
+ul2.removeChild(ul2.firstElementChild);
+
+// 7. div három gyerekkel + gomb törlés
+const parentDiv = document.createElement("div");
+parentDiv.className="box";
+["egy","kettő","három"].forEach(t=>{
+  const d=document.createElement("div");
+  d.textContent=t;
+  parentDiv.appendChild(d);
+});
+document.body.appendChild(parentDiv);
+
+document.getElementById("deleteSecond").onclick=()=>{
+  if(parentDiv.children[1])
+    parentDiv.removeChild(parentDiv.children[1]);
+};
+
+// 8. nextSibling szöveg módosítás
+const list3 = document.createElement("ul");
+["X","Y","Z"].forEach(t=>{
+  const li=document.createElement("li");
+  li.textContent=t;
+  list3.appendChild(li);
+});
+document.body.appendChild(list3);
+list3.children[0].nextElementSibling.textContent="Megváltoztatva";
+
+// 9. previousSibling háttér piros
+list3.children[1].previousElementSibling.style.background="red";
+
+// 10. ul 5 elem + harmadik törlés
+const ul4=document.createElement("ul");
+for(let i=1;i<=5;i++){
+  const li=document.createElement("li");
+  li.textContent="Elem "+i;
+  ul4.appendChild(li);
+}
+document.body.appendChild(ul4);
+ul4.removeChild(ul4.children[2]);
+
+// 11. kattintásra új div #root-ba
+document.getElementById("addDiv").onclick=()=>{
+  const d=document.createElement("div");
+  d.textContent="Új div";
+  document.getElementById("root").appendChild(d);
+};
+
+// 12. input lista + utolsó törlés
+document.getElementById("addItem").onclick=()=>{
+  const value=document.getElementById("textInput").value;
+  if(!value) return;
+  const li=document.createElement("li");
+  li.textContent=value;
+  document.getElementById("dynamicList").appendChild(li);
+};
+
+document.getElementById("removeLast").onclick=()=>{
+  const list=document.getElementById("dynamicList");
+  if(list.lastElementChild)
+    list.removeChild(list.lastElementChild);
+};
+
+// 13. 10 span + utolsó előtti kékre
+const spanContainer=document.createElement("div");
+document.body.appendChild(spanContainer);
+
+document.getElementById("createSpan").onclick=()=>{
+  spanContainer.innerHTML="";
+  for(let i=0;i<10;i++){
+    const span=document.createElement("span");
+    span.textContent="span ";
+    spanContainer.appendChild(span);
+  }
+};
+
+document.getElementById("colorSpan").onclick=()=>{
+  const spans=spanContainer.querySelectorAll("span");
+  if(spans.length>1)
+    spans[spans.length-2].style.color="blue";
+};
+
+// 14. minden div után p
+// querySelectorAll(): CSS-szelektor alapján az összes megfelelő elemet kiválasztja.
+document.querySelectorAll("div").forEach(div=>{
+  const p=document.createElement("p");
+  p.textContent="Utánam jöttem!";
+  div.after(p);
+});
+
+// 15. interaktív listaépítő
+const builderList=document.createElement("ul");
+document.body.appendChild(builderList);
+
+const addBtn=document.createElement("button");
+addBtn.textContent="Hozzáadás";
+document.body.appendChild(addBtn);
+
+const removeBtn=document.createElement("button");
+removeBtn.textContent="Törlés";
+document.body.appendChild(removeBtn);
+
+const editBtn=document.createElement("button");
+editBtn.textContent="Módosítás";
+document.body.appendChild(editBtn);
+
+addBtn.onclick=()=>{
+  const li=document.createElement("li");
+  li.textContent="Új elem";
+  builderList.appendChild(li);
+};
+
+removeBtn.onclick=()=>{
+  if(builderList.lastElementChild)
+    builderList.removeChild(builderList.lastElementChild);
+};
+
+editBtn.onclick=()=>{
+  if(builderList.firstElementChild)
+    builderList.firstElementChild.textContent="Módosítva";
+};
+
+</script>
+</body>
+</html>

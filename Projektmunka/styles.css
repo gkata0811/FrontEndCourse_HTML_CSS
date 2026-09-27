@@ -1,0 +1,860 @@
+/*
+  TANULÁSI SEGÉDLET – CSS
+  A CSS szabály felépítése: szelektor { tulajdonság: érték; }
+  A szelektor megmondja, mely HTML-elemeket formázzuk.
+  A .név egy class-t, a #név egy id-t céloz.
+  A :hover az egérrel rámutatott állapot, a ::before pedig létrehozott pszeudoelem.
+  Az @media szabályok különböző képernyőszélességekre készítenek reszponzív elrendezést.
+*/
+
+/* Szelektor: :root – az ehhez illeszkedő HTML-elemek formázása következik. */
+:root {
+  /* Saját CSS-változó az alap háttérszínhez. */
+  --bg: #f7f6f3;
+  /* Saját változó a felületek/kártyák színéhez. */
+  --surface: #ffffff;
+  /* Kiemelőszín változó. */
+  --accent: #7d5a50;
+  /* A kiemelőszín sötétebb változata. */
+  --accent-dark: #573d34;
+  /* Alap szövegszín változó. */
+  --text: #2f2f2f;
+  /* Halványabb szövegszín változó. */
+  --muted: #657075;
+}
+
+/* Szelektor: * – az ehhez illeszkedő HTML-elemek formázása következik. */
+* {
+  /* Meghatározza, hogyan számítson bele a padding és border az elem méretébe. */
+  box-sizing: border-box;
+}
+
+/* Szelektor: html – az ehhez illeszkedő HTML-elemek formázása következik. */
+html {
+  /* A horgonyokra ugrást/görgetést simává teszi. */
+  scroll-behavior: smooth;
+}
+
+/* Szelektor: body – az ehhez illeszkedő HTML-elemek formázása következik. */
+body {
+  /* Külső margót állít. */
+  margin: 0;
+  /* A használt betűtípust állítja. */
+  font-family: Inter, system-ui, sans-serif;
+  /* Háttérszínt vagy összetett hátteret/átmenetet ad. */
+  background: linear-gradient(180deg, #d8c3b0 0%, #efe4d7 40%, #faf7f2 70%, #ffffff 100%);
+  /* A szöveg színét állítja. */
+  color: var(--text);
+  /* A sorok közötti magasságot/távolságot állítja. */
+  line-height: 1.6;
+}
+
+/* Szelektor: img – az ehhez illeszkedő HTML-elemek formázása következik. */
+img {
+  /* Maximális szélességet ad. */
+  max-width: 100%;
+  /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+  display: block;
+}
+
+/* Szelektor: .container – az ehhez illeszkedő HTML-elemek formázása következik. */
+.container {
+  /* Az elem szélességét állítja. */
+  width: min(1700px, calc(100% - 4rem));
+  /* Külső margót állít. */
+  margin: 0 auto;
+}
+
+/* Szelektor: .site-header – az ehhez illeszkedő HTML-elemek formázása következik. */
+.site-header {
+  /* Háttérszínt vagy összetett hátteret/átmenetet ad. */
+  background: linear-gradient(135deg, #d8c3b0 0%, #efe4d7 60%, #ffffff 100%);
+  /* Csak az alsó szegélyt állítja. */
+  border-bottom: 1px solid #e6e4df;
+  /* Az elem pozicionálási módját adja meg. */
+  position: sticky;
+  /* A felső pozíciót/távolságot állítja. */
+  top: 0;
+  /* Az egymásra kerülő elemek rétegsorrendjét szabályozza. */
+  z-index: 10;
+}
+
+/* Szelektor: .header-inner – az ehhez illeszkedő HTML-elemek formázása következik. */
+.header-inner {
+  /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+  display: flex;
+  /* Flex/Grid elemek igazítását szabályozza a keresztirányú tengelyen. */
+  align-items: center;
+  /* Flex/Grid elemek elosztását és igazítását szabályozza a főtengelyen. */
+  justify-content: space-between;
+  /* Belső térközt állít az elem tartalma és széle között. */
+  padding: 1rem 0;
+}
+
+/* Szelektor: .brand – az ehhez illeszkedő HTML-elemek formázása következik. */
+.brand {
+  /* A használt betűtípust állítja. */
+  font-family: "Cormorant Garamond", serif;
+  /* A betűméretet állítja. */
+  font-size: 2.2rem;
+  /* A betű vastagságát állítja. */
+  font-weight: 600;
+  /* A betűk közötti távolságot állítja. */
+  letter-spacing: 0;
+}
+
+/* Szelektor: .main-nav – az ehhez illeszkedő HTML-elemek formázása következik. */
+.main-nav {
+  /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+  display: flex;
+  /* Az elemek közötti rést állítja. */
+  gap: 1rem;
+  /* Animált átmenetet ad tulajdonságváltozáskor. */
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Szelektor: .main-nav a – az ehhez illeszkedő HTML-elemek formázása következik. */
+.main-nav a {
+  /* A szöveg színét állítja. */
+  color: var(--text);
+  /* A szöveg dekorációját, pl. aláhúzását szabályozza. */
+  text-decoration: none;
+  /* A betű vastagságát állítja. */
+  font-weight: 500;
+  /* Animált átmenetet ad tulajdonságváltozáskor. */
+  transition: color 0.2s ease;
+  /* A használt betűtípust állítja. */
+  font-family: "Cormorant Garamond", serif;
+  /* A betűméretet állítja. */
+  font-size: 1.3rem;
+  /* A betű vastagságát állítja. */
+  font-weight: 600;
+}
+
+/* Szelektor: .main-nav a:hover – az ehhez illeszkedő HTML-elemek formázása következik. */
+.main-nav a:hover {
+  /* A szöveg színét állítja. */
+  color: var(--accent);
+}
+
+/* Szelektor: .main-nav.open – az ehhez illeszkedő HTML-elemek formázása következik. */
+.main-nav.open {
+  /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+  display: block;
+  margin-top: 1rem;
+  /* Az elem átlátszóságát állítja. */
+  opacity: 1;
+  /* Az elemet eltolja, forgatja vagy méretezi. */
+  transform: translateY(0);
+}
+
+/* Szelektor: .hamburger – az ehhez illeszkedő HTML-elemek formázása következik. */
+.hamburger {
+  /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+  display: none;
+  /* Szegélyt állít. */
+  border: none;
+  /* Háttérszínt vagy összetett hátteret/átmenetet ad. */
+  background: transparent;
+  /* Belső térközt állít az elem tartalma és széle között. */
+  padding: 0.5rem;
+  /* Az egérmutató megjelenését állítja. */
+  cursor: pointer;
+  /* Animált átmenetet ad tulajdonságváltozáskor. */
+  transition: transform 0.2s ease;
+}
+
+/* Szelektor: .hamburger:hover – az ehhez illeszkedő HTML-elemek formázása következik. */
+.hamburger:hover {
+  /* Az elemet eltolja, forgatja vagy méretezi. */
+  transform: scale(1.05);
+}
+
+/* Szelektor: .hamburger span – az ehhez illeszkedő HTML-elemek formázása következik. */
+.hamburger span {
+  /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+  display: block;
+  /* Az elem szélességét állítja. */
+  width: 1.8rem;
+  /* Az elem magasságát állítja. */
+  height: 0.18rem;
+  /* Háttérszínt vagy összetett hátteret/átmenetet ad. */
+  background: var(--text);
+  /* Külső margót állít. */
+  margin: 0.35rem 0;
+  /* Animált átmenetet ad tulajdonságváltozáskor. */
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Szelektor: .hamburger.active span:nth-child(1) – az ehhez illeszkedő HTML-elemek formázása következik. */
+.hamburger.active span:nth-child(1) {
+  /* Az elemet eltolja, forgatja vagy méretezi. */
+  transform: translateY(0.55rem) rotate(45deg);
+}
+
+/* Szelektor: .hamburger.active span:nth-child(2) – az ehhez illeszkedő HTML-elemek formázása következik. */
+.hamburger.active span:nth-child(2) {
+  /* Az elem átlátszóságát állítja. */
+  opacity: 0;
+}
+
+/* Szelektor: .hamburger.active span:nth-child(3) – az ehhez illeszkedő HTML-elemek formázása következik. */
+.hamburger.active span:nth-child(3) {
+  /* Az elemet eltolja, forgatja vagy méretezi. */
+  transform: translateY(-0.55rem) rotate(-45deg);
+}
+
+/* Szelektor: .hero – az ehhez illeszkedő HTML-elemek formázása következik. */
+.hero {
+  /* Háttérszínt állít. */
+  background-color: #edd8c6;
+  /* Háttérképet állít. */
+  background-image: url('hatter.png');
+  /* A háttérkép méretezését szabályozza. */
+  background-size: cover;
+  /* A háttérkép pozícióját állítja. */
+  background-position: center;
+  /* Szabályozza a háttérkép ismétlődését. */
+  background-repeat: no-repeat;
+  /* Minimális magasságot ad. */
+  min-height: 100vh;
+  /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+  display: flex;
+  /* Flex/Grid elemek igazítását szabályozza a keresztirányú tengelyen. */
+  align-items: center;
+  /* Flex/Grid elemek elosztását és igazítását szabályozza a főtengelyen. */
+  justify-content: center;
+  /* Belső térközt állít az elem tartalma és széle között. */
+  padding: 0;
+  /* Az elem pozicionálási módját adja meg. */
+  position: relative;
+}
+
+/* Szelektor: .hero::before – az ehhez illeszkedő HTML-elemek formázása következik. */
+.hero::before {
+  /* Pszeudoelem generált tartalmát adja meg. */
+  content: "";
+  /* Az elem pozicionálási módját adja meg. */
+  position: absolute;
+  /* A felső pozíciót/távolságot állítja. */
+  top: 0;
+  /* Az alsó pozíciót/távolságot állítja. */
+  bottom: 0;
+  /* A bal oldali pozíciót állítja. */
+  left: 50%;
+  /* Az elemet eltolja, forgatja vagy méretezi. */
+  transform: translateX(-50%);
+  /* Az elem szélességét állítja. */
+  width: 6rem;
+  /* Háttérszínt vagy összetett hátteret/átmenetet ad. */
+  background: #000;
+  /* Az egymásra kerülő elemek rétegsorrendjét szabályozza. */
+  z-index: 1;
+}
+
+/* Szelektor: .hero > .container – az ehhez illeszkedő HTML-elemek formázása következik. */
+.hero > .container {
+  /* Az elem szélességét állítja. */
+  width: 100%;
+  /* Maximális szélességet ad. */
+  max-width: none;
+  /* Külső margót állít. */
+  margin: 0;
+  /* Belső térközt állít az elem tartalma és széle között. */
+  padding: 0;
+}
+
+/* Szelektor: .hero-content – az ehhez illeszkedő HTML-elemek formázása következik. */
+.hero-content {
+  /* Az elem szélességét állítja. */
+  width: 100%;
+  /* Az elem pozicionálási módját adja meg. */
+  position: relative;
+  /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+  display: flex;
+  /* Flex/Grid elemek igazítását szabályozza a keresztirányú tengelyen. */
+  align-items: stretch;
+  /* Flex/Grid elemek elosztását és igazítását szabályozza a főtengelyen. */
+  justify-content: space-between;
+  /* Belső térközt állít az elem tartalma és széle között. */
+  padding: 0;
+  /* Minimális magasságot ad. */
+  min-height: 100vh;
+  /* Az elem magasságát állítja. */
+  height: 100%;
+  /* Az elemek közötti rést állítja. */
+  gap: 0;
+  /* Szabályozza, mi történjen a kilógó tartalommal. */
+  overflow: hidden;
+  /* Az egymásra kerülő elemek rétegsorrendjét szabályozza. */
+  z-index: 2;
+}
+
+/* Szelektor: .hero-circle – az ehhez illeszkedő HTML-elemek formázása következik. */
+.hero-circle {
+  /* Az elem pozicionálási módját adja meg. */
+  position: absolute;
+  /* A bal oldali pozíciót állítja. */
+  left: 50%;
+  /* A felső pozíciót/távolságot állítja. */
+  top: 50%;
+  /* Az elemet eltolja, forgatja vagy méretezi. */
+  transform: translate(-50%, -50%);
+  /* Az elem szélességét állítja. */
+  width: min(18rem, 20vw);
+  /* Az elem magasságát állítja. */
+  height: min(18rem, 20vw);
+  /* Maximális szélességet ad. */
+  max-width: 20rem;
+  /* Maximális magasságot ad. */
+  max-height: 20rem;
+  /* Lekerekíti a sarkokat; 50% kör alakot is létrehozhat. */
+  border-radius: 50%;
+  /* Háttérszínt vagy összetett hátteret/átmenetet ad. */
+  background: #000;
+  /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+  display: flex;
+  /* Flex/Grid elemek igazítását szabályozza a keresztirányú tengelyen. */
+  align-items: center;
+  /* Flex/Grid elemek elosztását és igazítását szabályozza a főtengelyen. */
+  justify-content: center;
+  /* Az egymásra kerülő elemek rétegsorrendjét szabályozza. */
+  z-index: 3;
+  /* Árnyékot ad az elemhez. */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  /* Belső térközt állít az elem tartalma és széle között. */
+  padding: 1.5rem;
+}
+
+/* Szelektor: .hero-circle small – az ehhez illeszkedő HTML-elemek formázása következik. */
+.hero-circle small {
+  /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+  display: block;
+  /* A használt betűtípust állítja. */
+  font-family: "Cormorant Garamond", serif;
+  /* A betűméretet állítja. */
+  font-size: 0.55em;
+  /* A betű vastagságát állítja. */
+  font-weight: 500;
+  /* A betűk közötti távolságot állítja. */
+  letter-spacing: 0;
+  margin-top: 0.15em;
+}
+
+/* Reszponzív töréspont: az alábbi szabályok csak a megadott képernyőszélességnél érvényesek. */
+@media (min-width: 900px) {
+/* Szelektor: .hero-content – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .hero-content {
+    /* Engedi vagy tiltja a flex-elemek új sorba törését. */
+    flex-wrap: nowrap;
+  }
+}
+
+/* Reszponzív töréspont: az alábbi szabályok csak a megadott képernyőszélességnél érvényesek. */
+@media (max-width: 900px) {
+/* Szelektor: .hero-circle – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .hero-circle {
+    /* Az elem szélességét állítja. */
+    width: min(13rem, 55vw);
+    /* Az elem magasságát állítja. */
+    height: min(13rem, 55vw);
+    /* Maximális szélességet ad. */
+    max-width: 15rem;
+    /* Maximális magasságot ad. */
+    max-height: 15rem;
+  }
+}
+
+/* Szelektor: .hero-circle span – az ehhez illeszkedő HTML-elemek formázása következik. */
+.hero-circle span {
+  /* A használt betűtípust állítja. */
+  font-family: "Cormorant Garamond", serif;
+  /* A betűméretet állítja. */
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  /* A betű vastagságát állítja. */
+  font-weight: 600;
+  /* A szöveg színét állítja. */
+  color: #fff;
+  /* A szöveg vízszintes igazítását állítja. */
+  text-align: center;
+  /* A sorok közötti magasságot/távolságot állítja. */
+  line-height: 0.85;
+  /* A betűk közötti távolságot állítja. */
+  letter-spacing: -0.03em;
+  /* A kis-/nagybetűs megjelenést szabályozza. */
+  text-transform: none;
+}
+
+/* Szelektor: .section – az ehhez illeszkedő HTML-elemek formázása következik. */
+.section {
+  /* Belső térközt állít az elem tartalma és széle között. */
+  padding: 4rem 0;
+}
+
+/* Szelektor: .section .container – az ehhez illeszkedő HTML-elemek formázása következik. */
+.section .container {
+  /* Háttérszínt vagy összetett hátteret/átmenetet ad. */
+  background: linear-gradient(135deg, #efe4d7 0%, #f7f1ea 45%, #ffffff 100%);
+  /* Szegélyt állít. */
+  border: 1px solid #e6e4df;
+  /* Lekerekíti a sarkokat; 50% kör alakot is létrehozhat. */
+  border-radius: 1.5rem;
+  /* Belső térközt állít az elem tartalma és széle között. */
+  padding: 2rem;
+  /* Árnyékot ad az elemhez. */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* Szelektor: .section-layout – az ehhez illeszkedő HTML-elemek formázása következik. */
+.section-layout {
+  /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+  display: flex;
+  /* Flex/Grid elemek igazítását szabályozza a keresztirányú tengelyen. */
+  align-items: center;
+  /* Flex/Grid elemek elosztását és igazítását szabályozza a főtengelyen. */
+  justify-content: space-between;
+  /* Az elemek közötti rést állítja. */
+  gap: 4rem;
+}
+
+.section-image,
+/* Szelektor: .section-content – az ehhez illeszkedő HTML-elemek formázása következik. */
+.section-content {
+  /* A flex-elem növekedési/méretezési viselkedését adja meg. */
+  flex: 1;
+}
+
+/* Szelektor: .section-image img – az ehhez illeszkedő HTML-elemek formázása következik. */
+.section-image img {
+  /* Az elem szélességét állítja. */
+  width: 100%;
+  /* Az elem magasságát állítja. */
+  height: auto;
+  /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+  display: block;
+  /* Lekerekíti a sarkokat; 50% kör alakot is létrehozhat. */
+  border-radius: 1rem;
+  /* Megadja, hogyan töltse ki a kép a rendelkezésre álló területet. */
+  object-fit: cover;
+}
+
+/* Szelektor: .section-content .contact-form – az ehhez illeszkedő HTML-elemek formázása következik. */
+.section-content .contact-form {
+  /* Az elem szélességét állítja. */
+  width: 100%;
+}
+
+.section-content .contact-form input,
+.section-content .contact-form select,
+/* Szelektor: .section-content .contact-form button – az ehhez illeszkedő HTML-elemek formázása következik. */
+.section-content .contact-form button {
+  /* Az elem szélességét állítja. */
+  width: 100%;
+}
+
+/* Reszponzív töréspont: az alábbi szabályok csak a megadott képernyőszélességnél érvényesek. */
+@media (max-width: 900px) {
+/* Szelektor: .section-layout – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .section-layout {
+    /* A flex-elemek sor- vagy oszlopirányát állítja. */
+    flex-direction: column;
+    /* Az elemek közötti rést állítja. */
+    gap: 2rem;
+  }
+  .section-image,
+/* Szelektor: .section-content – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .section-content {
+    /* Az elem szélességét állítja. */
+    width: 100%;
+  }
+}
+
+/* Szelektor: .section h2 – az ehhez illeszkedő HTML-elemek formázása következik. */
+.section h2 {
+  /* A használt betűtípust állítja. */
+  font-family: "Cormorant Garamond", serif;
+  /* A betű stílusát állítja, például dőltre. */
+  font-style: italic;
+  /* A betű vastagságát állítja. */
+  font-weight: 600;
+  /* A betűméretet állítja. */
+  font-size: 3rem;
+}
+
+/* Szelektor: .section h3 – az ehhez illeszkedő HTML-elemek formázása következik. */
+.section h3 {
+  /* A használt betűtípust állítja. */
+  font-family: "Cormorant Garamond", serif;
+  /* A betű stílusát állítja, például dőltre. */
+  font-style: italic;
+  /* A betű vastagságát állítja. */
+  font-weight: 500;
+  /* A betűméretet állítja. */
+  font-size: 2rem;
+}
+
+.section p,
+/* Szelektor: .contact-form label – az ehhez illeszkedő HTML-elemek formázása következik. */
+.contact-form label {
+  /* A használt betűtípust állítja. */
+  font-family: "Cormorant Garamond", serif;
+  /* A betűméretet állítja. */
+  font-size: 1.35rem;
+  /* A betű vastagságát állítja. */
+  font-weight: 400;
+  /* A sorok közötti magasságot/távolságot állítja. */
+  line-height: 1.6;
+  /* A szöveg színét állítja. */
+  color: var(--text);
+}
+
+/* Szelektor: .cards – az ehhez illeszkedő HTML-elemek formázása következik. */
+.cards {
+  /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+  display: grid;
+  /* Meghatározza a CSS Grid oszlopainak szerkezetét. */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  /* Az elemek közötti rést állítja. */
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Szelektor: .card – az ehhez illeszkedő HTML-elemek formázása következik. */
+.card {
+  /* Háttérszínt vagy összetett hátteret/átmenetet ad. */
+  background: var(--surface);
+  /* Szegélyt állít. */
+  border: 1px solid #e6e4df;
+  /* Lekerekíti a sarkokat; 50% kör alakot is létrehozhat. */
+  border-radius: 1rem;
+  /* Belső térközt állít az elem tartalma és széle között. */
+  padding: 1.5rem;
+  /* Árnyékot ad az elemhez. */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* Szelektor: .card h3 – az ehhez illeszkedő HTML-elemek formázása következik. */
+.card h3 {
+  margin-top: 0;
+}
+
+/* Szelektor: .contact-form – az ehhez illeszkedő HTML-elemek formázása következik. */
+.contact-form {
+  /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+  display: grid;
+  /* Az elemek közötti rést állítja. */
+  gap: 1rem;
+  /* Maximális szélességet ad. */
+  max-width: 40rem;
+  margin-top: 1.5rem;
+}
+
+.contact-form label,
+/* Szelektor: .contact-form legend – az ehhez illeszkedő HTML-elemek formázása következik. */
+.contact-form legend {
+  /* A betű vastagságát állítja. */
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form select,
+/* Szelektor: .contact-form button – az ehhez illeszkedő HTML-elemek formázása következik. */
+.contact-form button {
+  /* Az elem szélességét állítja. */
+  width: 100%;
+  /* Belső térközt állít az elem tartalma és széle között. */
+  padding: 0.95rem 1rem;
+  /* Szegélyt állít. */
+  border: 1px solid #d8d3ce;
+  /* Lekerekíti a sarkokat; 50% kör alakot is létrehozhat. */
+  border-radius: 0.8rem;
+  font: inherit;
+}
+
+/* Szelektor: .contact-form fieldset – az ehhez illeszkedő HTML-elemek formázása következik. */
+.contact-form fieldset {
+  /* Szegélyt állít. */
+  border: 1px solid #d8d3ce;
+  /* Lekerekíti a sarkokat; 50% kör alakot is létrehozhat. */
+  border-radius: 0.8rem;
+  /* Belső térközt állít az elem tartalma és széle között. */
+  padding: 1rem;
+}
+
+/* Szelektor: .contact-form fieldset label – az ehhez illeszkedő HTML-elemek formázása következik. */
+.contact-form fieldset label {
+  /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+  display: block;
+  margin-top: 0.75rem;
+  /* A betű vastagságát állítja. */
+  font-weight: 500;
+}
+
+/* Szelektor: .contact-form button – az ehhez illeszkedő HTML-elemek formázása következik. */
+.contact-form button {
+  /* Szegélyt állít. */
+  border: none;
+  /* Háttérszínt vagy összetett hátteret/átmenetet ad. */
+  background: var(--accent);
+  /* A szöveg színét állítja. */
+  color: #fff;
+  /* A betű vastagságát állítja. */
+  font-weight: 700;
+  /* Az egérmutató megjelenését állítja. */
+  cursor: pointer;
+  /* Animált átmenetet ad tulajdonságváltozáskor. */
+  transition: background 0.2s ease;
+  /* A használt betűtípust állítja. */
+  font-family: "Cormorant Garamond", serif !important;
+  /* A betűméretet állítja. */
+  font-size: 1.35rem;
+  /* A betű vastagságát állítja. */
+  font-weight: 500;
+}
+
+/* Szelektor: .contact-form button:hover – az ehhez illeszkedő HTML-elemek formázása következik. */
+.contact-form button:hover {
+  /* Háttérszínt vagy összetett hátteret/átmenetet ad. */
+  background: var(--accent-dark);
+}
+
+/* Szelektor: .site-footer – az ehhez illeszkedő HTML-elemek formázása következik. */
+.site-footer {
+  /* Belső térközt állít az elem tartalma és széle között. */
+  padding: 1.5rem 0;
+  /* A szöveg vízszintes igazítását állítja. */
+  text-align: center;
+  /* A szöveg színét állítja. */
+  color: var(--muted);
+}
+
+/* Szelektor: .back-to-top – az ehhez illeszkedő HTML-elemek formázása következik. */
+.back-to-top {
+  /* Az elem pozicionálási módját adja meg. */
+  position: fixed;
+  /* A jobb oldali pozíciót állítja. */
+  right: 1.25rem;
+  /* Az alsó pozíciót/távolságot állítja. */
+  bottom: 1.25rem;
+  /* Az elem szélességét állítja. */
+  width: 3rem;
+  /* Az elem magasságát állítja. */
+  height: 3rem;
+  /* Szegélyt állít. */
+  border: none;
+  /* Lekerekíti a sarkokat; 50% kör alakot is létrehozhat. */
+  border-radius: 50%;
+  /* Háttérszínt vagy összetett hátteret/átmenetet ad. */
+  background: var(--accent);
+  /* A szöveg színét állítja. */
+  color: #fff;
+  /* A betűméretet állítja. */
+  font-size: 1.25rem;
+  /* Az egérmutató megjelenését állítja. */
+  cursor: pointer;
+  /* Az elem átlátszóságát állítja. */
+  opacity: 0;
+  /* Az elem láthatóságát szabályozza. */
+  visibility: hidden;
+  /* Az elemet eltolja, forgatja vagy méretezi. */
+  transform: translateY(10px);
+  /* Animált átmenetet ad tulajdonságváltozáskor. */
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  /* Az egymásra kerülő elemek rétegsorrendjét szabályozza. */
+  z-index: 15;
+}
+
+/* Szelektor: .back-to-top.visible – az ehhez illeszkedő HTML-elemek formázása következik. */
+.back-to-top.visible {
+  /* Az elem átlátszóságát állítja. */
+  opacity: 1;
+  /* Az elem láthatóságát szabályozza. */
+  visibility: visible;
+  /* Az elemet eltolja, forgatja vagy méretezi. */
+  transform: translateY(0);
+}
+
+/* Szelektor: .back-to-top:hover – az ehhez illeszkedő HTML-elemek formázása következik. */
+.back-to-top:hover {
+  /* Háttérszínt vagy összetett hátteret/átmenetet ad. */
+  background: var(--accent-dark);
+}
+
+/* Reszponzív töréspont: az alábbi szabályok csak a megadott képernyőszélességnél érvényesek. */
+@media (max-width: 1024px) {
+/* Szelektor: .header-inner – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .header-inner {
+    /* A flex-elemek sor- vagy oszlopirányát állítja. */
+    flex-direction: column;
+    /* Flex/Grid elemek igazítását szabályozza a keresztirányú tengelyen. */
+    align-items: flex-start;
+    /* Az elemek közötti rést állítja. */
+    gap: 1rem;
+  }
+
+/* Szelektor: .main-nav – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .main-nav {
+    /* Az elem szélességét állítja. */
+    width: 100%;
+    /* Flex/Grid elemek elosztását és igazítását szabályozza a főtengelyen. */
+    justify-content: center;
+    /* Engedi vagy tiltja a flex-elemek új sorba törését. */
+    flex-wrap: wrap;
+  }
+
+/* Szelektor: .hero – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .hero {
+    /* Belső térközt állít az elem tartalma és széle között. */
+    padding: 4rem 0;
+  }
+
+/* Szelektor: .section – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .section {
+    /* Belső térközt állít az elem tartalma és széle között. */
+    padding: 3rem 0;
+  }
+}
+
+/* Reszponzív töréspont: az alábbi szabályok csak a megadott képernyőszélességnél érvényesek. */
+@media (max-width: 768px) {
+/* Szelektor: .main-nav – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .main-nav {
+    /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+    display: none;
+    /* A flex-elemek sor- vagy oszlopirányát állítja. */
+    flex-direction: column;
+    /* Az elemek közötti rést állítja. */
+    gap: 0.75rem;
+    /* Háttérszínt vagy összetett hátteret/átmenetet ad. */
+    background: #fff;
+    /* Belső térközt állít az elem tartalma és széle között. */
+    padding: 1rem 0;
+    /* Csak a felső szegélyt állítja. */
+    border-top: 1px solid #e6e4df;
+    /* Az elem szélességét állítja. */
+    width: 100%;
+    /* Az elem átlátszóságát állítja. */
+    opacity: 0;
+    /* Az elemet eltolja, forgatja vagy méretezi. */
+    transform: translateY(-1rem);
+  }
+
+/* Szelektor: .main-nav.open – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .main-nav.open {
+    /* Az elem átlátszóságát állítja. */
+    opacity: 1;
+    /* Az elemet eltolja, forgatja vagy méretezi. */
+    transform: translateY(0);
+  }
+
+/* Szelektor: .main-nav a – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .main-nav a {
+    /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+    display: block;
+    /* Belső térközt állít az elem tartalma és széle között. */
+    padding: 0.5rem 1rem;
+  }
+
+/* Szelektor: .hamburger – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .hamburger {
+    /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+    display: inline-flex;
+    /* Flex/Grid elemek igazítását szabályozza a keresztirányú tengelyen. */
+    align-items: center;
+    /* Flex/Grid elemek elosztását és igazítását szabályozza a főtengelyen. */
+    justify-content: center;
+  }
+
+/* Szelektor: .header-inner – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .header-inner {
+    /* Engedi vagy tiltja a flex-elemek új sorba törését. */
+    flex-wrap: wrap;
+  }
+
+/* Szelektor: .hero – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .hero {
+    /* Belső térközt állít az elem tartalma és széle között. */
+    padding: 3rem 0;
+  }
+
+  .hero p,
+/* Szelektor: .section p – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .section p {
+    /* Maximális szélességet ad. */
+    max-width: 100%;
+  }
+
+/* Szelektor: .cards – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .cards {
+    /* Meghatározza a CSS Grid oszlopainak szerkezetét. */
+    grid-template-columns: 1fr;
+  }
+
+/* Szelektor: .contact-form – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .contact-form {
+    /* Az elem elrendezési módját állítja (pl. flex, grid, block). */
+    display: grid;
+    /* Az elemek közötti rést állítja. */
+    gap: 1rem;
+    /* Az elem szélességét állítja. */
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+}
+
+/* Reszponzív töréspont: az alábbi szabályok csak a megadott képernyőszélességnél érvényesek. */
+@media (max-width: 480px) {
+/* Szelektor: .hero – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .hero {
+    /* Belső térközt állít az elem tartalma és széle között. */
+    padding: 2.5rem 0;
+  }
+
+/* Szelektor: .site-header – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .site-header {
+    /* Belső térközt állít az elem tartalma és széle között. */
+    padding: 0 1rem;
+  }
+
+/* Szelektor: .header-inner – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .header-inner {
+    /* Az elemek közötti rést állítja. */
+    gap: 0.75rem;
+  }
+
+/* Szelektor: .brand – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .brand {
+    /* A betűméretet állítja. */
+    font-size: 1.1rem;
+  }
+
+  .contact-form input,
+  .contact-form select,
+/* Szelektor: .contact-form button – az ehhez illeszkedő HTML-elemek formázása következik. */
+  .contact-form button {
+    /* A használt betűtípust állítja. */
+    font-family: "Cormorant Garamond", serif !important;
+    /* A betűméretet állítja. */
+    font-size: 1.35rem;
+    /* A betű vastagságát állítja. */
+    font-weight: 500;
+  }
+}
+
+/* Szelektor: #contact a – az ehhez illeszkedő HTML-elemek formázása következik. */
+#contact a {
+  /* A szöveg színét állítja. */
+  color: var(--accent);
+  /* A szöveg dekorációját, pl. aláhúzását szabályozza. */
+  text-decoration: none;
+  /* A betű vastagságát állítja. */
+  font-weight: 600;
+}
+
+/* Szelektor: #contact a:hover – az ehhez illeszkedő HTML-elemek formázása következik. */
+#contact a:hover {
+  /* A szöveg színét állítja. */
+  color: var(--accent-dark);
+  /* A szöveg dekorációját, pl. aláhúzását szabályozza. */
+  text-decoration: underline;
+}

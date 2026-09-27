@@ -1,0 +1,117 @@
+<html>
+<meta charset="UTF-8">
+    <!-- A viewport beállítás gondoskodik róla, hogy az oldal mobilon is a készülék szélességéhez igazodjon. -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Húsvéti üdvözlőlap</title>
+    <!-- A style elemben az oldalhoz tartozó CSS-formázás írható közvetlenül a HTML-be. -->
+<style>
+        body {
+            background-image: url('husvetinyuszi.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: cursive;
+        }
+
+        p {
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            font-size: 250%;
+        }
+
+        h1:hover {
+            color: beige;
+        }
+
+        div{
+            /* Flexbox elrendezést kapcsol be, így a gyermekelemek rugalmasan rendezhetők. */
+            display: flex;
+            justify-content: center;
+        }
+
+        table {
+            margin: 0 auto;
+            text-align: center;
+            justify-content: center;
+            width: 50%;
+            height: 85%;
+            border: 10px solid beige;
+            background-color: rgba(255, 255, 255, 0.8);
+            table-layout: fixed;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-size: 200%;
+        }
+
+        td {
+            height: 50px;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: transparent;
+            font-size: 200%;
+        }
+
+        input {
+            width: 100%;
+            height: 100%;
+            /* A megadott szélességbe és magasságba a padding és a border is beleszámít. */
+            box-sizing: border-box;
+        }
+
+    </style>    
+<head>
+        <title>Húsvéti üdvözlőlap</title>
+    </head>
+    <body>
+        <h1>Kellemes Húsvéti Ünnepeket Kívánok!</h1>
+
+        <!-- A table táblázatos adatok sorokba és oszlopokba rendezésére szolgál. -->
+<table border="1" cellpadding="3">
+      <colgroup>
+        <col>
+        <col>
+      </colgroup>
+      <caption>
+
+      <tbody>
+        <tr>
+          <td>Kinek:</td>
+          <td>
+            <label for="name"></label>
+            <input type="text" id="name" name="name">
+          </td>
+        </tr>
+        <tr>
+          <td>Kitől:</td>
+          <td>
+            <label for="name"></label>
+            <input type="text" id="name" name="name">
+          </td>
+        </tr>
+        <tr>
+          <td>Dátum:</td>
+          <td>
+            <label for="date"></label>
+            <input type="date" id="date" name="date">
+          </td>
+        </tr>
+        <tr>
+          <td>Pozitív húsvéti üzenet:</td>
+          <td>
+            <label for="message"></label>
+            <input type="text" id="message" name="message">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    </body>
+</html>
